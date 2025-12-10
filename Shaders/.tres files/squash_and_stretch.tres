@@ -10,7 +10,7 @@ shader_type canvas_item;
 
 uniform bool uv_mode = false;
 uniform float y_factor = 2.0;
-uniform float bulge : hint_range(-1,1);
+uniform float squash : hint_range(-1,1);
 
 void vertex()
 {
@@ -18,7 +18,7 @@ void vertex()
 	VERTEX.y *= y_factor;
 }
 
-float bulge_function(float y)
+float squash_function(float y)
 {
 	return sqrt(1.0 - y*y);
 }
@@ -29,7 +29,7 @@ void fragment()
 
 	uv.y *= y_factor;
 
-	float displacement = 1.0 + bulge * bulge_function(uv.y);
+	float displacement = 1.0 + squash * squash_function(uv.y);
 	uv.y /= displacement;
 	
 	uv = (uv + 1.0) / 2.0;
@@ -53,4 +53,4 @@ else
 shader = SubResource("Shader_dylux")
 shader_parameter/uv_mode = false
 shader_parameter/y_factor = 2.0
-shader_parameter/bulge = 0.135
+shader_parameter/squash = -0.374
