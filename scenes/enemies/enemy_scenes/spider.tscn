@@ -1,14 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://bwu414lgjx2du"]
+[gd_scene load_steps=21 format=3 uid="uid://bwu414lgjx2du"]
 
 [ext_resource type="Shader" uid="uid://2irgm8uxp4xt" path="res://Shaders/Outline 2.gdshader" id="1_mf3vg"]
 [ext_resource type="Script" uid="uid://ci1kijjj64cww" path="res://scenes/enemies/scripts/spider/spider.gd" id="2_5s4wc"]
 [ext_resource type="Texture2D" uid="uid://2k6cmw3eg5vi" path="res://assets/enemies/spider/idle.png" id="2_ttiju"]
 [ext_resource type="Animation" uid="uid://b1y50g31mox73" path="res://temp_animations/shield.tres" id="3_t7m53"]
 [ext_resource type="Texture2D" uid="uid://d1pq456rpxquf" path="res://assets/enemies/spider/walk_final.png" id="4_sdkqh"]
-[ext_resource type="Material" uid="uid://bb4vm7oa8jwi0" path="res://Shaders/.tres files/spider_glow.tres" id="5_t7m53"]
-[ext_resource type="Texture2D" uid="uid://dlxmfqdt4v3ki" path="res://assets/enemies/egg turret/Shoot/new_laser.png" id="7_bke4x"]
-[ext_resource type="Material" uid="uid://p7x1je6dtmo4" path="res://Shaders/.tres files/plasm_wave2.tres" id="8_iejlx"]
-[ext_resource type="Texture2D" uid="uid://dgh4jqo6ps7nw" path="res://assets/enemies/spider/laser_beam2.png" id="9_mtv7m"]
 [ext_resource type="BehaviorTree" uid="uid://cqw1pt5nweqp6" path="res://ai/trees/Spider.tres" id="9_t7m53"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t7m53"]
@@ -83,134 +79,86 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("ShapeCast2D:position")
+tracks/5/path = NodePath("Shield:material:shader_parameter/PIXELDISOLVE_custom_resolution")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-3, 2)]
+"values": [Vector2(1000, 100)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("ShapeCast2D:scale")
+tracks/6/path = NodePath("Shield:material:shader_parameter/OUTLINE_thickness")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [3.0]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Shield:material:shader_parameter/PIXELDISOLVE_custom_resolution")
+tracks/7/path = NodePath("Shield:frame")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1000, 100)]
+"values": [0]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Shield:material:shader_parameter/OUTLINE_thickness")
+tracks/8/path = NodePath("GPUParticles2D:process_material:emission_box_extents")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [3.0]
+"values": [Vector3(20, -10, 1)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Shield:frame")
+tracks/9/path = NodePath("GPUParticles2D:amount")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0]
+"update": 1,
+"values": [1000]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("GPUParticles2D:process_material:emission_box_extents")
+tracks/10/path = NodePath("laser_pivot:skew")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(20, -10, 1)]
+"values": [0.682424]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("GPUParticles2D:amount")
+tracks/11/path = NodePath("laser_pivot:scale")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1000]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("GPUParticles2D:process_material:emission_shape_offset")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(48.925, -4.325, 0)]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("Shield:material:shader_parameter/COLORSWAP_tolerance")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.1]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("laser_pivot:scale")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1, 1)]
-}
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("laser_pivot:skew")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.682424]
 }
 
 [sub_resource type="Animation" id="Animation_bke4x"]
@@ -349,34 +297,10 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("ShapeCast2D:scale")
+tracks/7/path = NodePath("Shield:material:shader_parameter/COLORSWAP_tolerance")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1.90034, 1.90034), Vector2(8.71536, 8.53919), Vector2(20.6104, 20.4405), Vector2(36.4054, 36.2708), Vector2(44.7204, 47.7604), Vector2(44.7204, 47.7604)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("ShapeCast2D:position")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-5, 3), Vector2(-20, 11), Vector2(-36, 21), Vector2(-55, 32), Vector2(-73, 39), Vector2(-73, 39)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Shield:material:shader_parameter/COLORSWAP_tolerance")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
@@ -428,8 +352,6 @@ emission_box_extents = Vector3(20, -10, 1)
 gravity = Vector3(0, 0, 0)
 scale_max = 1.55
 color_ramp = SubResource("GradientTexture1D_t7m53")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bke4x"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t7m53"]
 particle_flag_disable_z = true
@@ -487,7 +409,6 @@ visible = false
 texture = ExtResource("2_ttiju")
 
 [node name="walk" type="Sprite2D" parent="Sprites"]
-material = ExtResource("5_t7m53")
 position = Vector2(6, 12)
 texture = ExtResource("4_sdkqh")
 hframes = 11
@@ -507,35 +428,6 @@ amount = 1000
 lifetime = 0.03
 process_material = SubResource("ParticleProcessMaterial_5s4wc")
 
-[node name="laser_pivot" type="Sprite2D" parent="."]
-self_modulate = Color(1, 1, 1, 0)
-position = Vector2(0, -2)
-skew = 0.682424
-texture = ExtResource("7_bke4x")
-offset = Vector2(16.605, 0.65)
-
-[node name="laser_beam" type="Line2D" parent="laser_pivot"]
-z_index = -1
-material = ExtResource("8_iejlx")
-position = Vector2(-2959.87, 4.18761)
-rotation = -0.00179896
-scale = Vector2(10.2159, -1.09202)
-skew = 0.716386
-points = PackedVector2Array(295.22, -0.75296, 2318.31, -0.841346)
-texture = ExtResource("9_mtv7m")
-texture_mode = 2
-joint_mode = 2
-begin_cap_mode = 2
-end_cap_mode = 2
-
-[node name="ShapeCast2D" type="ShapeCast2D" parent="laser_pivot"]
-visible = false
-position = Vector2(84.1775, -0.790394)
-rotation = 4.62784
-scale = Vector2(0.395, 0.951)
-shape = SubResource("RectangleShape2D_bke4x")
-target_position = Vector2(-28.894, 141.974)
-
 [node name="shield_partciles" type="GPUParticles2D" parent="."]
 visible = false
 modulate = Color(0.85098, 0.85098, 0.85098, 0.235294)
@@ -549,20 +441,5 @@ environment = SubResource("Environment_t7m53")
 [node name="BTPlayer" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("9_t7m53")
 blackboard_plan = SubResource("BlackboardPlan_iejlx")
-
-[node name="shape_cast pivot" type="Sprite2D" parent="."]
-self_modulate = Color(1, 1, 1, 0)
-position = Vector2(0, -2)
-scale = Vector2(0.930713, 3.79214)
-skew = 0.981314
-texture = ExtResource("7_bke4x")
-offset = Vector2(16.605, 0.65)
-
-[node name="ShapeCast2D" type="ShapeCast2D" parent="shape_cast pivot"]
-position = Vector2(33.3181, -0.948692)
-rotation = 4.62784
-scale = Vector2(0.395, 0.951)
-shape = SubResource("RectangleShape2D_bke4x")
-target_position = Vector2(-28.894, 141.974)
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
