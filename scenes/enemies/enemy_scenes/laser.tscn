@@ -69,6 +69,7 @@ unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_l5c32")
 }
+autoplay = "laser_shoot"
 
 [node name="laser_area" type="ShapeCast2D" parent="laser"]
 unique_name_in_owner = true

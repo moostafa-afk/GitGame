@@ -8,7 +8,6 @@ signal point_of_collision(shape_rotation:float,point : Vector2)
 
 func _ready() -> void:
     %Timer.start()
-    %AnimationPlayer.play("laser_shoot")
     offset()
 
 func _physics_process(delta: float) -> void:

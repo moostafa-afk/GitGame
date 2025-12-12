@@ -1175,6 +1175,7 @@ script = ExtResource("1_3fcd6")
 script = ExtResource("20_7bwfe")
 
 [node name="Tilemap layers" type="Node2D" parent="."]
+visible = false
 modulate = Color(0.988235, 0.878431, 1, 1)
 
 [node name="platform_destr" type="TileMapLayer" parent="Tilemap layers" groups=["platforms"]]
@@ -1217,7 +1218,7 @@ position = Vector2(-8, 320)
 metadata/_edit_lock_ = true
 
 [node name="spider" parent="." instance=ExtResource("16_7bwfe")]
-position = Vector2(-212, 393)
+position = Vector2(-213, 399)
 
 [node name="Ch_bodies modulate" type="Node2D" parent="."]
 modulate = Color(0.416, 0.8, 0.8, 1)

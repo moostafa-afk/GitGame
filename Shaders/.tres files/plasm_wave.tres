@@ -67,15 +67,15 @@ void vertex() {
 
 [resource]
 shader = SubResource("Shader_t2rmg")
-shader_parameter/opacity = 1.0
+shader_parameter/opacity = 0.68
 shader_parameter/LIGHTNINGX_active = true
-shader_parameter/min_offset = 0.0950001
-shader_parameter/max_offset = 0.409
+shader_parameter/min_offset = -1.0
+shader_parameter/max_offset = 1.0
 shader_parameter/count = 15
 shader_parameter/LIGHTNING_lightningColor = Color(1, 1, 1, 1)
-shader_parameter/LIGHTNING_size = 0.292
-shader_parameter/LIGHTNING_width = 0.665
-shader_parameter/LIGHTNING_speed = 14.2
-shader_parameter/LIGHTNING_frequency = 7.2
-shader_parameter/LIGHTNING_flash = 2.1
+shader_parameter/LIGHTNING_size = 0.208
+shader_parameter/LIGHTNING_width = 0.671
+shader_parameter/LIGHTNING_speed = 2.7
+shader_parameter/LIGHTNING_frequency = 9.2
+shader_parameter/LIGHTNING_flash = 0.0
 shader_parameter/LIGHTNING_time_shift = 0.0

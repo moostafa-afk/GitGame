@@ -1,10 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://bwu414lgjx2du"]
+[gd_scene load_steps=22 format=3 uid="uid://bwu414lgjx2du"]
 
 [ext_resource type="Shader" uid="uid://2irgm8uxp4xt" path="res://Shaders/Outline 2.gdshader" id="1_mf3vg"]
 [ext_resource type="Script" uid="uid://ci1kijjj64cww" path="res://scenes/enemies/scripts/spider/spider.gd" id="2_5s4wc"]
 [ext_resource type="Texture2D" uid="uid://2k6cmw3eg5vi" path="res://assets/enemies/spider/idle.png" id="2_ttiju"]
 [ext_resource type="Animation" uid="uid://b1y50g31mox73" path="res://temp_animations/shield.tres" id="3_t7m53"]
 [ext_resource type="Texture2D" uid="uid://d1pq456rpxquf" path="res://assets/enemies/spider/walk_final.png" id="4_sdkqh"]
+[ext_resource type="PackedScene" uid="uid://bufpllvcroemw" path="res://scenes/enemies/enemy_scenes/spider_beam.tscn" id="7_ixrlb"]
 [ext_resource type="BehaviorTree" uid="uid://cqw1pt5nweqp6" path="res://ai/trees/Spider.tres" id="9_t7m53"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t7m53"]
@@ -364,7 +365,6 @@ scale_max = 10.0
 
 [sub_resource type="Environment" id="Environment_t7m53"]
 background_mode = 3
-glow_enabled = true
 glow_levels/1 = 3.78
 glow_levels/2 = 6.65
 glow_levels/3 = 5.49
@@ -441,5 +441,8 @@ environment = SubResource("Environment_t7m53")
 [node name="BTPlayer" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("9_t7m53")
 blackboard_plan = SubResource("BlackboardPlan_iejlx")
+
+[node name="spider_beam" parent="." instance=ExtResource("7_ixrlb")]
+position = Vector2(36, -4)
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
