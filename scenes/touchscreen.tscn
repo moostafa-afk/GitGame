@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://cvq8asc1ey1eg"]
+[gd_scene load_steps=47 format=4 uid="uid://cvq8asc1ey1eg"]
 
 [ext_resource type="Script" uid="uid://c3el551q6s0jj" path="res://scenes/instantiated/laser_effects.gd" id="1_3fcd6"]
 [ext_resource type="Texture2D" uid="uid://lmrhjtpaqo0j" path="res://assets/player assets/Sprite-0001.png" id="1_6uuk8"]
@@ -18,7 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://bwu414lgjx2du" path="res://scenes/enemies/enemy_scenes/spider.tscn" id="16_7bwfe"]
 [ext_resource type="AudioStream" uid="uid://dktotsdolqhgm" path="res://sound_effects/pixel-245147.mp3" id="16_jnf6q"]
 [ext_resource type="Script" uid="uid://c7p5my7kmfugi" path="res://scenes/instantiated/add_block.gd" id="20_7bwfe"]
-[ext_resource type="PackedScene" uid="uid://b7w36sekibkaq" path="res://scenes/enemies/enemy_scenes/rolling.tscn" id="20_bfwrw"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6uuk8"]
 
@@ -1175,7 +1174,6 @@ script = ExtResource("1_3fcd6")
 script = ExtResource("20_7bwfe")
 
 [node name="Tilemap layers" type="Node2D" parent="."]
-visible = false
 modulate = Color(0.988235, 0.878431, 1, 1)
 
 [node name="platform_destr" type="TileMapLayer" parent="Tilemap layers" groups=["platforms"]]
@@ -1216,9 +1214,6 @@ modulate = Color(0.8, 0.9, 0.9, 1)
 material = ExtResource("8_3fcd6")
 position = Vector2(-8, 320)
 metadata/_edit_lock_ = true
-
-[node name="spider" parent="." instance=ExtResource("16_7bwfe")]
-position = Vector2(-213, 399)
 
 [node name="Ch_bodies modulate" type="Node2D" parent="."]
 modulate = Color(0.416, 0.8, 0.8, 1)
@@ -1262,8 +1257,8 @@ unique_name_in_owner = true
 stream = ExtResource("16_jnf6q")
 volume_db = -5.0
 
-[node name="rolling" parent="." instance=ExtResource("20_bfwrw")]
-position = Vector2(280, 312)
+[node name="spider" parent="." instance=ExtResource("16_7bwfe")]
+position = Vector2(-273, 396)
 
 [connection signal="child_entered_tree" from="." to="instantiated/particle_effects" method="_on_level_child_entered_tree"]
 [connection signal="timeout" from="electric_timer" to="Tilemap layers/platform_destr" method="_on_timer_timeout"]

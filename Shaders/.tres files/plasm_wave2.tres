@@ -204,7 +204,7 @@ void vertex() {
 
 [resource]
 shader = SubResource("Shader_gcq0q")
-shader_parameter/opacity = 0.79
+shader_parameter/opacity = 0.8
 shader_parameter/squash_active = true
 shader_parameter/uv_mode = false
 shader_parameter/y_factor = 2.47
@@ -215,19 +215,19 @@ shader_parameter/max_offset = 2.0
 shader_parameter/count = 15
 shader_parameter/LIGHTNING_lightningColor = Color(1.49205e-06, 0.703937, 0.507644, 1)
 shader_parameter/LIGHTNING_size = 0.26
-shader_parameter/LIGHTNING_width = 0.408
+shader_parameter/LIGHTNING_width = 0.9
 shader_parameter/LIGHTNING_speed = 15.0
-shader_parameter/LIGHTNING_frequency = 16.6
-shader_parameter/LIGHTNING_flash = 0.9
+shader_parameter/LIGHTNING_frequency = 29.0
+shader_parameter/LIGHTNING_flash = 0.0
 shader_parameter/LIGHTNING_time_shift = 0.0
 shader_parameter/COLORSWAP_active = true
 shader_parameter/COLORSWAP_mix = 0.0
 shader_parameter/COLORSWAP_max_colors = 8
 shader_parameter/COLORSWAP_show_stripes = false
-shader_parameter/COLORSWAP_tolerance = 0.3
+shader_parameter/COLORSWAP_tolerance = 0.0
 shader_parameter/COLORSWAP_input_color1 = Color(0.156863, 0.427451, 0.694118, 1)
 shader_parameter/COLORSWAP_output_color1 = Color(1, 1, 1, 1)
-shader_parameter/COLORSWAP_input_color2 = Color(0, 0, 0, 1)
+shader_parameter/COLORSWAP_input_color2 = Color(0.481789, 0.481789, 0.481789, 1)
 shader_parameter/COLORSWAP_output_color2 = Color(0, 0, 0, 1)
 shader_parameter/COLORSWAP_input_color3 = Color(0, 0, 0, 1)
 shader_parameter/COLORSWAP_output_color3 = Color(0, 0, 0, 1)

@@ -83,7 +83,7 @@ collision_mask = 27
 script = ExtResource("3_vpegx")
 damage = 5.0
 knockback_enabled = true
-knockback_strength = 10.0
+knockback_strength = 100.0
 
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
