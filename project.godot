@@ -47,7 +47,7 @@ window/stretch/scale_mode="integer"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/NormalMap/plugin.cfg", "res://addons/PaletteSwapShader/plugin.cfg", "res://addons/Todo_Manager/plugin.cfg", "res://addons/fancy_editor_sounds/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg", "res://addons/postfx/plugin.cfg", "res://addons/sprite-shader-mixer/plugin.cfg")
+enabled=PackedStringArray("res://addons/PaletteSwapShader/plugin.cfg", "res://addons/Todo_Manager/plugin.cfg", "res://addons/fancy_editor_sounds/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg", "res://addons/postfx/plugin.cfg", "res://addons/sprite-shader-mixer/plugin.cfg")
 
 [global_group]
 

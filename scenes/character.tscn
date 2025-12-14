@@ -300,6 +300,7 @@ input_pickable = true
 slide_on_ceiling = false
 floor_block_on_wall = false
 script = ExtResource("1_8yvht")
+metadata/_edit_vertical_guides_ = [-69.0, -73.0]
 
 [node name="TakeDamage" type="Node" parent="."]
 
@@ -362,7 +363,7 @@ H_Jump = 700
 
 [node name="Sprites" type="Node2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(201, -16)
+position = Vector2(201, -15)
 
 [node name="walk" type="Sprite2D" parent="Sprites"]
 unique_name_in_owner = true
@@ -518,6 +519,8 @@ shape = SubResource("RectangleShape2D_sougf")
 unique_name_in_owner = true
 script = ExtResource("25_sougf")
 metadata/_custom_type_script = "uid://5byn62y1oa76"
+
+[node name="Node2D" type="Node2D" parent="."]
 
 [connection signal="timeout" from="Timers/DashTimer" to="FSM/Dash" method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="Timers/JumpTimer" to="FSM/JumpController" method="_on_jump_timer_timeout"]
