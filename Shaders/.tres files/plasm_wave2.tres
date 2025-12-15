@@ -12,7 +12,7 @@ shader_type canvas_item;
 
 uniform float opacity:hint_range(0.0, 1.0, 0.01)=1.;
 
-	
+
 /*
 Squish Sprite Shader by Garmelon (https://github.com/Garmelon)
 Documented by Mateus-Carmo31
@@ -39,7 +39,7 @@ void squash_func(in vec2 uv, in sampler2D tex, in vec2 size, in vec2 pixelSize, 
 	uv = (uv + 1.0) / 2.0;
 
 
-	
+
 if (uv_mode)
 {
     color = uv.y >= 0.0 && uv.y <= 1.0 ? vec4(uv, 0.0, 1.0) : vec4(vec3(0.0), 1.0);
@@ -81,21 +81,21 @@ void lightningx(in vec2 uv, in sampler2D sampler,in vec2 texSize, vec2 pixelSize
     float wave[max_const];
     float blink;
     vec4 display[max_const];
-    
+
         for (int i = 0; i < count; i++ ){
     	    bolt[i] = abs(mod(uv.x * LIGHTNING_frequency + (LIGHTNING_rand(TIME) + LIGHTNING_time_shift) * LIGHTNING_speed * -1., 0.5)-0.25)-0.125;
             bolt[i] *= 4. * LIGHTNING_width;
- 	        wave[i] = abs(uv.y - float(i) * .1  + bolt[i] + (min_max_sin(TIME + float(i)) *.9) )  ;     
+ 	        wave[i] = abs(uv.y - float(i) * .1  + bolt[i] + (min_max_sin(TIME + float(i)) *.9) )  ;
             wave[i] = 1. - step(LIGHTNING_size * .2, wave[i]);
            	blink = step(LIGHTNING_rand (TIME) * LIGHTNING_flash  , float(i) );
 	        wave[i] *= blink;
-            
+
 	        display[i] = LIGHTNING_lightningColor * vec4(wave[i]);
 	        color =vec4(color.rgb + display[i].rgb , color.a);
         }
-        
+
     }
-  
+
 
 uniform bool  COLORSWAP_active = true;
 uniform float COLORSWAP_mix:hint_range(0,1,0.1) = 0;
@@ -133,11 +133,11 @@ vec4 COLORSWAP_stripe(vec2 uv, vec4 color){
 }
 bool COLORSWAP_isColorSimilar(vec4 color1, vec4 color2){
 		return (
-			color1.r > (color2.r - COLORSWAP_tolerance) && 
-		    color1.r < (color2.r + COLORSWAP_tolerance) && 
-			color1.g > (color2.g - COLORSWAP_tolerance) && 
+			color1.r > (color2.r - COLORSWAP_tolerance) &&
+		    color1.r < (color2.r + COLORSWAP_tolerance) &&
+			color1.g > (color2.g - COLORSWAP_tolerance) &&
 		    color1.g < (color2.g + COLORSWAP_tolerance) &&
-			color1.b > (color2.b - COLORSWAP_tolerance) && 
+			color1.b > (color2.b - COLORSWAP_tolerance) &&
 		    color1.b < (color2.b + COLORSWAP_tolerance)
 			);
 }
@@ -152,7 +152,7 @@ void colorswap(in vec2 uv, in sampler2D txt, in vec2 size, in vec2 pixelSize, in
 		COLORSWAP_input_color7,
 		COLORSWAP_input_color8
 	};
-	
+
 	vec4[] output_colors = {
 		COLORSWAP_output_color1,
 		COLORSWAP_output_color2,
@@ -163,9 +163,9 @@ void colorswap(in vec2 uv, in sampler2D txt, in vec2 size, in vec2 pixelSize, in
 		COLORSWAP_output_color7,
 		COLORSWAP_output_color8
 	};
-		
+
 	bool is_color = false;
-	
+
 	for(int cr = 0; cr < COLORSWAP_max_colors; cr++){
 		if (finalColor.a>0. && COLORSWAP_isColorSimilar(finalColor, input_colors[cr])){
 			finalColor = mix(output_colors[cr], finalColor, COLORSWAP_mix);
@@ -198,13 +198,13 @@ void fragment() {
 }
 
 void vertex() {
-	
+
 }
 "
 
 [resource]
 shader = SubResource("Shader_gcq0q")
-shader_parameter/opacity = 0.8
+shader_parameter/opacity = 0.7
 shader_parameter/squash_active = true
 shader_parameter/uv_mode = false
 shader_parameter/y_factor = 2.47
