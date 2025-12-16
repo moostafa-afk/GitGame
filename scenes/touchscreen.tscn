@@ -1213,8 +1213,7 @@ tile_set = SubResource("TileSet_jw8eq")
 [node name="Player" parent="." instance=ExtResource("1_v1h5c")]
 modulate = Color(0.8, 0.9, 0.9, 1)
 material = ExtResource("8_3fcd6")
-position = Vector2(-551, 334)
-metadata/_edit_lock_ = true
+position = Vector2(83, 383)
 
 [node name="Ch_bodies modulate" type="Node2D" parent="."]
 modulate = Color(0.416, 0.8, 0.8, 1)

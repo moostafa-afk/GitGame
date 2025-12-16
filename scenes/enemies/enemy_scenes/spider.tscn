@@ -449,7 +449,7 @@ behavior_tree = ExtResource("9_t7m53")
 blackboard_plan = SubResource("BlackboardPlan_iejlx")
 
 [node name="spider_beam" parent="." instance=ExtResource("7_ixrlb")]
-position = Vector2(43, -1)
+position = Vector2(38, -4)
 
 [node name="Hurtbox" type="Area2D" parent="."]
 script = ExtResource("8_phe6u")

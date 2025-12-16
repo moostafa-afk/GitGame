@@ -32,4 +32,4 @@ func take_damage(amount: float, knockback: Vector2, source: Node2D) -> void:
             owner.velocity.x = knockback.x / last_attack_vector.x * 100
             
             
-            
+        

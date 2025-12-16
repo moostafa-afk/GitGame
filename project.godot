@@ -115,7 +115,8 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_4="ground"
 2d_physics/layer_5="block"
 2d_physics/layer_6="Hitbox"
-2d_physics/layer_7="Hurtbox"
+2d_physics/layer_7="Normal_Hurtbox"
+2d_physics/layer_8="Heavy_Hurtbox"
 
 [rendering]
 
