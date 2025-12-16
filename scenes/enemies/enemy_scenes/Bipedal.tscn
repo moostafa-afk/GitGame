@@ -1,10 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://d0j2nmxab7kxf"]
+[gd_scene load_steps=16 format=3 uid="uid://d0j2nmxab7kxf"]
 
 [ext_resource type="Script" uid="uid://dvl4ibyxf7k4k" path="res://scenes/enemies/scripts/bipedal/bipedal.gd" id="1_ptbch"]
 [ext_resource type="BehaviorTree" uid="uid://dk6bsl8iqc4uw" path="res://ai/trees/bipedal.tres" id="3_0mhj7"]
 [ext_resource type="Texture2D" uid="uid://dmo5x6rsetxfh" path="res://assets/enemies/bipedal/walk.png" id="3_ogaxb"]
 [ext_resource type="Script" uid="uid://dntc3c582m5w8" path="res://demo/agents/scripts/hitbox.gd" id="4_ogaxb"]
 [ext_resource type="Texture2D" uid="uid://crkvw20rvxpos" path="res://assets/enemies/bipedal/attack_1.png" id="4_ojp0q"]
+[ext_resource type="Script" uid="uid://5byn62y1oa76" path="res://demo/agents/scripts/health.gd" id="6_ygand"]
+[ext_resource type="Script" uid="uid://dtlykl2xxk54n" path="res://scenes/enemies/scripts/bipedal/label.gd" id="7_kjolg"]
+[ext_resource type="Script" uid="uid://dq5h6yydckjc1" path="res://demo/agents/scripts/hurtbox.gd" id="8_kjolg"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_0mhj7"]
 
@@ -86,7 +89,6 @@ size = Vector2(52, 6.5)
 
 [node name="Bipedal" type="CharacterBody2D"]
 modulate = Color(0.8, 0.8, 0.8, 1)
-position = Vector2(1, -1)
 collision_layer = 4
 collision_mask = 1073741833
 script = ExtResource("1_ptbch")
@@ -155,6 +157,9 @@ autostart = true
 
 [node name="Hitbox" type="Area2D" parent="."]
 visible = false
+light_mask = 0
+collision_layer = 32
+collision_mask = 64
 script = ExtResource("4_ogaxb")
 damage = 40.0
 knockback_strength = 100.0
@@ -164,6 +169,33 @@ metadata/_custom_type_script = "uid://dntc3c582m5w8"
 position = Vector2(-2, 30.25)
 shape = SubResource("RectangleShape2D_ojp0q")
 debug_color = Color(0.983129, 0, 0.355887, 0.42)
+
+[node name="Health" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("6_ygand")
+metadata/_custom_type_script = "uid://5byn62y1oa76"
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = -33.0
+offset_top = -48.0
+offset_right = 42.0
+offset_bottom = -25.0
+text = "Health
+"
+horizontal_alignment = 1
+script = ExtResource("7_kjolg")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 32
+script = ExtResource("8_kjolg")
+metadata/_custom_type_script = "uid://dq5h6yydckjc1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(-2, 5.5)
+scale = Vector2(0.563153, -6.89365)
+shape = SubResource("RectangleShape2D_ptbch")
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

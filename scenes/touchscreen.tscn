@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://cvq8asc1ey1eg"]
+[gd_scene load_steps=48 format=4 uid="uid://cvq8asc1ey1eg"]
 
 [ext_resource type="Script" uid="uid://c3el551q6s0jj" path="res://scenes/instantiated/laser_effects.gd" id="1_3fcd6"]
 [ext_resource type="Texture2D" uid="uid://lmrhjtpaqo0j" path="res://assets/player assets/Sprite-0001.png" id="1_6uuk8"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://b63mlwdo7dfsj" path="res://assets/backgoround/floor2.jpeg" id="14_grwhg"]
 [ext_resource type="PackedScene" uid="uid://bwu414lgjx2du" path="res://scenes/enemies/enemy_scenes/spider.tscn" id="16_7bwfe"]
 [ext_resource type="AudioStream" uid="uid://dktotsdolqhgm" path="res://sound_effects/pixel-245147.mp3" id="16_jnf6q"]
+[ext_resource type="PackedScene" uid="uid://d0j2nmxab7kxf" path="res://scenes/enemies/enemy_scenes/Bipedal.tscn" id="19_6uuk8"]
 [ext_resource type="Script" uid="uid://c7p5my7kmfugi" path="res://scenes/instantiated/add_block.gd" id="20_7bwfe"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6uuk8"]
@@ -1224,7 +1225,10 @@ metadata/_edit_lock_ = true
 modulate = Color(0.156936, 0.510847, 0.561974, 1)
 position = Vector2(984, 342)
 
-[node name="CanvasLayer" parent="." instance=ExtResource("3_qg6m8")]
+[node name="Bipedal" parent="Ch_bodies modulate" instance=ExtResource("19_6uuk8")]
+position = Vector2(83, 36)
+
+[node name="User Interface" parent="." instance=ExtResource("3_qg6m8")]
 
 [node name="floor" type="StaticBody2D" parent="." groups=["ground"]]
 z_index = 3

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bwu414lgjx2du"]
+[gd_scene load_steps=26 format=3 uid="uid://bwu414lgjx2du"]
 
 [ext_resource type="Shader" uid="uid://2irgm8uxp4xt" path="res://Shaders/Outline 2.gdshader" id="1_mf3vg"]
 [ext_resource type="Script" uid="uid://ci1kijjj64cww" path="res://scenes/enemies/scripts/spider/spider.gd" id="2_5s4wc"]
@@ -6,7 +6,10 @@
 [ext_resource type="Animation" uid="uid://b1y50g31mox73" path="res://temp_animations/shield.tres" id="3_t7m53"]
 [ext_resource type="Texture2D" uid="uid://d1pq456rpxquf" path="res://assets/enemies/spider/walk_final.png" id="4_sdkqh"]
 [ext_resource type="PackedScene" uid="uid://bufpllvcroemw" path="res://scenes/enemies/enemy_scenes/spider_beam.tscn" id="7_ixrlb"]
+[ext_resource type="Script" uid="uid://dq5h6yydckjc1" path="res://demo/agents/scripts/hurtbox.gd" id="8_phe6u"]
+[ext_resource type="Script" uid="uid://5byn62y1oa76" path="res://demo/agents/scripts/health.gd" id="9_jjqa5"]
 [ext_resource type="BehaviorTree" uid="uid://cqw1pt5nweqp6" path="res://ai/trees/Spider.tres" id="9_t7m53"]
+[ext_resource type="Script" uid="uid://dtlykl2xxk54n" path="res://scenes/enemies/scripts/bipedal/label.gd" id="10_bke4x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t7m53"]
 shader = ExtResource("1_mf3vg")
@@ -384,6 +387,9 @@ fog_light_color = Color(0.139655, 0.622113, 0.644458, 1)
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_iejlx"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjqa5"]
+size = Vector2(62, 58)
+
 [node name="spider" type="CharacterBody2D"]
 material = SubResource("ShaderMaterial_t7m53")
 collision_layer = 4
@@ -443,6 +449,30 @@ behavior_tree = ExtResource("9_t7m53")
 blackboard_plan = SubResource("BlackboardPlan_iejlx")
 
 [node name="spider_beam" parent="." instance=ExtResource("7_ixrlb")]
-position = Vector2(36, -4)
+position = Vector2(43, -1)
+
+[node name="Hurtbox" type="Area2D" parent="."]
+script = ExtResource("8_phe6u")
+metadata/_custom_type_script = "uid://dq5h6yydckjc1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(3, 11)
+shape = SubResource("RectangleShape2D_jjqa5")
+
+[node name="Health" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("9_jjqa5")
+metadata/_custom_type_script = "uid://5byn62y1oa76"
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = -33.0
+offset_top = -48.0
+offset_right = 42.0
+offset_bottom = -25.0
+text = "Health
+"
+horizontal_alignment = 1
+script = ExtResource("10_bke4x")
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

@@ -24,8 +24,12 @@ func take_damage(amount: float, knockback: Vector2, source: Node2D) -> void:
     #else:
         last_attack_vector = owner.global_position - source.owner.global_position
         health.take_damage(amount, knockback)
+        
         if knockback == Vector2.ZERO:
             return
-        else:
             
+        else:
             owner.velocity.x = knockback.x / last_attack_vector.x * 100
+            
+            
+            
