@@ -56,14 +56,14 @@ anchor_bottom = 0.855556
 grow_horizontal = 0
 grow_vertical = 0
 pivot_offset = Vector2(38, -79)
-metadata/_edit_use_anchors_ = true
 
 [node name="jump" type="TouchScreenButton" parent="Full_Rect/Control"]
+position = Vector2(17.999695, -41.000156)
 rotation = -1.5708
 scale = Vector2(3, 3)
 skew = -0.575959
 texture_normal = ExtResource("1_dj8aq")
-action = "super_jump"
+action = "jump"
 
 [node name="Control2" type="Control" parent="Full_Rect"]
 layout_mode = 1
@@ -80,6 +80,7 @@ grow_vertical = 0
 pivot_offset = Vector2(76, 40)
 
 [node name="dash" type="TouchScreenButton" parent="Full_Rect/Control2"]
+position = Vector2(-43.000057, -8.999969)
 scale = Vector2(3, 3)
 skew = -0.584685
 texture_normal = ExtResource("1_dj8aq")
@@ -140,11 +141,32 @@ grow_vertical = 0
 pivot_offset = Vector2(-34, 63)
 
 [node name="block" type="TouchScreenButton" parent="Control5"]
+position = Vector2(-70, 0)
 rotation = 1.5708
 scale = Vector2(3, 2.49738)
 skew = -0.279253
 texture_normal = ExtResource("3_5en4g")
 action = "block"
+
+[node name="Control6" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.842188
+anchor_top = 0.855556
+anchor_right = 0.997187
+anchor_bottom = 0.855556
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2(38, -79)
+
+[node name="Super_jump" type="TouchScreenButton" parent="Control6"]
+position = Vector2(-52.000305, -37.00015)
+rotation = -1.5708
+scale = Vector2(3, 3)
+skew = -0.575959
+texture_normal = ExtResource("1_dj8aq")
+action = "super_jump"
 
 [node name="anim_red_bar" type="Timer" parent="."]
 unique_name_in_owner = true

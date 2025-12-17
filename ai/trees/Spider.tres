@@ -9,7 +9,6 @@ duration = 2.0
 
 [sub_resource type="BTAction" id="BTAction_ediev"]
 script = ExtResource("1_v4vcb")
-min_distance_x = 0
 
 [sub_resource type="BTSelector" id="BTSelector_v4vcb"]
 children = [SubResource("BTWait_ediev"), SubResource("BTAction_ediev")]

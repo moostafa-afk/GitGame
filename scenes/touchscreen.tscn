@@ -1151,6 +1151,7 @@ size = Vector2(4435.13, 18.6219)
 
 [node name="level" type="Node2D"]
 metadata/_edit_horizontal_guides_ = [-9.0, -558.0, -375.0]
+metadata/_edit_vertical_guides_ = [155.0]
 
 [node name="electric_timer" type="Timer" parent="."]
 process_callback = 0

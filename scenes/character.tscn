@@ -423,7 +423,6 @@ texture = ExtResource("18_cicko")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 visible = false
-zoom = Vector2(2, 2)
 
 [node name="animations" type="Node2D" parent="."]
 metadata/_edit_horizontal_guides_ = [16.0, 889.0]
