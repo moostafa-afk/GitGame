@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://d0j2nmxab7kxf"]
+[gd_scene load_steps=16 format=3 uid="uid://d0j2nmxab7kxf"]
 
 [ext_resource type="Script" uid="uid://dvl4ibyxf7k4k" path="res://scenes/enemies/scripts/bipedal/bipedal.gd" id="1_ptbch"]
+[ext_resource type="BehaviorTree" uid="uid://dk6bsl8iqc4uw" path="res://ai/trees/bipedal.tres" id="2_kjolg"]
 [ext_resource type="Texture2D" uid="uid://dmo5x6rsetxfh" path="res://assets/enemies/bipedal/walk.png" id="3_ogaxb"]
 [ext_resource type="Script" uid="uid://dntc3c582m5w8" path="res://demo/agents/scripts/hitbox.gd" id="4_ogaxb"]
 [ext_resource type="Texture2D" uid="uid://crkvw20rvxpos" path="res://assets/enemies/bipedal/attack_1.png" id="4_ojp0q"]
@@ -95,6 +96,7 @@ speed = 1000
 gravity = 1000
 
 [node name="BTPlayer" type="BTPlayer" parent="."]
+behavior_tree = ExtResource("2_kjolg")
 blackboard_plan = SubResource("BlackboardPlan_yf7qo")
 
 [node name="check_on_player" type="Node2D" parent="."]

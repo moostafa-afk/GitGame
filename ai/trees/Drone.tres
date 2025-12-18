@@ -36,7 +36,6 @@ children = [SubResource("BTWait_qm8mx"), SubResource("BTAction_ibpmj"), SubResou
 
 [sub_resource type="BTAction" id="BTAction_g3doo"]
 script = ExtResource("2_ibpmj")
-min_distance_y = 0
 
 [sub_resource type="BTAction" id="BTAction_lsi2t"]
 script = ExtResource("3_g1p1m")

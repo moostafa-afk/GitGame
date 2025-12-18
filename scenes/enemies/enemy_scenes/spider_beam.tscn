@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dlxmfqdt4v3ki" path="res://assets/enemies/egg turret/Shoot/new_laser.png" id="1_2ycer"]
 [ext_resource type="Material" uid="uid://p7x1je6dtmo4" path="res://Shaders/.tres files/plasm_wave2.tres" id="2_sxd6g"]
-[ext_resource type="Script" uid="uid://bv81ubq8jy5b7" path="res://laser_queue.gd" id="2_ylnva"]
+[ext_resource type="Script" uid="uid://r80va1ffbff0" path="res://scenes/enemies/scripts/spider/spider_beam.gd" id="2_ylnva"]
 [ext_resource type="Texture2D" uid="uid://dgh4jqo6ps7nw" path="res://assets/enemies/spider/laser_beam2.png" id="3_ylnva"]
 [ext_resource type="Script" uid="uid://8pgcd4fjmfie" path="res://scenes/enemies/scripts/spider/line_2d_beam.gd" id="6_e0kjr"]
 
@@ -145,7 +145,6 @@ unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_ylnva")
 }
-autoplay = "laser_beam"
 
 [node name="scale y axis" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite2D/Line2D")

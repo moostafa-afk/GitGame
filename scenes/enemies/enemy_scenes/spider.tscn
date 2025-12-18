@@ -18,6 +18,8 @@ shader_parameter/OUTLINE_active = true
 shader_parameter/OUTLINE_thickness = 20.0
 shader_parameter/OUTLINE_color = Color(1, 0, 0, 1)
 
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_iejlx"]
+
 [sub_resource type="Animation" id="Animation_cjpfl"]
 length = 0.001
 tracks/0/type = "value"
@@ -385,8 +387,6 @@ glow_hdr_luminance_cap = 5.28
 glow_map_strength = 1.0
 fog_light_color = Color(0.139655, 0.622113, 0.644458, 1)
 
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_iejlx"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjqa5"]
 size = Vector2(62, 58)
 
@@ -395,6 +395,10 @@ material = SubResource("ShaderMaterial_t7m53")
 collision_layer = 4
 collision_mask = 9
 script = ExtResource("2_5s4wc")
+
+[node name="BTPlayer" type="BTPlayer" parent="."]
+behavior_tree = ExtResource("9_t7m53")
+blackboard_plan = SubResource("BlackboardPlan_iejlx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -443,10 +447,6 @@ process_material = SubResource("ParticleProcessMaterial_t7m53")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_t7m53")
-
-[node name="BTPlayer" type="BTPlayer" parent="."]
-behavior_tree = ExtResource("9_t7m53")
-blackboard_plan = SubResource("BlackboardPlan_iejlx")
 
 [node name="spider_beam" parent="." instance=ExtResource("7_ixrlb")]
 position = Vector2(38, -4)
