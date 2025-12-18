@@ -1,7 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://d0j2nmxab7kxf"]
+[gd_scene load_steps=15 format=3 uid="uid://d0j2nmxab7kxf"]
 
 [ext_resource type="Script" uid="uid://dvl4ibyxf7k4k" path="res://scenes/enemies/scripts/bipedal/bipedal.gd" id="1_ptbch"]
-[ext_resource type="BehaviorTree" uid="uid://dk6bsl8iqc4uw" path="res://ai/trees/bipedal.tres" id="3_0mhj7"]
 [ext_resource type="Texture2D" uid="uid://dmo5x6rsetxfh" path="res://assets/enemies/bipedal/walk.png" id="3_ogaxb"]
 [ext_resource type="Script" uid="uid://dntc3c582m5w8" path="res://demo/agents/scripts/hitbox.gd" id="4_ogaxb"]
 [ext_resource type="Texture2D" uid="uid://crkvw20rvxpos" path="res://assets/enemies/bipedal/attack_1.png" id="4_ojp0q"]
@@ -9,7 +8,7 @@
 [ext_resource type="Script" uid="uid://dtlykl2xxk54n" path="res://scenes/enemies/scripts/bipedal/label.gd" id="7_kjolg"]
 [ext_resource type="Script" uid="uid://dq5h6yydckjc1" path="res://demo/agents/scripts/hurtbox.gd" id="8_kjolg"]
 
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_0mhj7"]
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_yf7qo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ptbch"]
 size = Vector2(92.3372, 7.68823)
@@ -96,8 +95,7 @@ speed = 1000
 gravity = 1000
 
 [node name="BTPlayer" type="BTPlayer" parent="."]
-behavior_tree = ExtResource("3_0mhj7")
-blackboard_plan = SubResource("BlackboardPlan_0mhj7")
+blackboard_plan = SubResource("BlackboardPlan_yf7qo")
 
 [node name="check_on_player" type="Node2D" parent="."]
 
@@ -159,7 +157,9 @@ autostart = true
 visible = false
 light_mask = 0
 collision_layer = 32
-collision_mask = 128
+collision_mask = 64
+monitoring = false
+monitorable = false
 script = ExtResource("4_ogaxb")
 damage = 40.0
 knockback_strength = 100.0
@@ -173,6 +173,7 @@ debug_color = Color(0.983129, 0, 0.355887, 0.42)
 [node name="Health" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("6_ygand")
+max_health = 10000.0
 metadata/_custom_type_script = "uid://5byn62y1oa76"
 
 [node name="Label" type="Label" parent="."]

@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://b7olm7kmce58u" path="res://assets/player assets/jump_ready_2.png" id="18_cicko"]
 [ext_resource type="Script" uid="uid://dq5h6yydckjc1" path="res://demo/agents/scripts/hurtbox.gd" id="24_7qyni"]
 [ext_resource type="Script" uid="uid://5byn62y1oa76" path="res://demo/agents/scripts/health.gd" id="25_sougf"]
+[ext_resource type="Script" uid="uid://dtlykl2xxk54n" path="res://scenes/enemies/scripts/bipedal/label.gd" id="26_p478o"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7qyni"]
 shader = ExtResource("1_4lh0q")
@@ -46,7 +47,7 @@ shader_parameter/glow_shift = 1.0
 shader_parameter/glow_radius = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8yvht"]
-size = Vector2(22.4224, 34.6467)
+size = Vector2(28.323011, 40.380444)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7qyni"]
 load_path = "res://.godot/imported/M_jump.png-192862dcac430cfdd2fbbf99eb7f8173.ctex"
@@ -290,9 +291,6 @@ _data = {
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_4lh0q"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sougf"]
-size = Vector2(20, 42)
-
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 material = SubResource("ShaderMaterial_7qyni")
 collision_mask = 28
@@ -305,8 +303,7 @@ metadata/_edit_vertical_guides_ = [-69.0, -73.0]
 [node name="TakeDamage" type="Node" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0.5, -3)
+position = Vector2(2, -3.3124943)
 scale = Vector2(0.847368, 1.02463)
 shape = SubResource("RectangleShape2D_8yvht")
 
@@ -507,21 +504,36 @@ collision_mask = 16
 
 [node name="Hurtbox" type="Area2D" parent="."]
 visible = false
+position = Vector2(0, -12)
+scale = Vector2(1.7246704, -1.4166516)
 collision_layer = 64
 collision_mask = 32
 script = ExtResource("24_7qyni")
 metadata/_custom_type_script = "uid://dq5h6yydckjc1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_sougf")
+position = Vector2(2, -3.3124943)
+scale = Vector2(0.847368, 1.02463)
+shape = SubResource("RectangleShape2D_8yvht")
 
 [node name="Health" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("25_sougf")
+max_health = 10000.0
 metadata/_custom_type_script = "uid://5byn62y1oa76"
 
 [node name="Node2D" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = -33.0
+offset_top = -48.0
+offset_right = 42.0
+offset_bottom = -25.0
+text = "Health
+"
+horizontal_alignment = 1
+script = ExtResource("26_p478o")
 
 [connection signal="timeout" from="Timers/DashTimer" to="FSM/Dash" method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="Timers/JumpTimer" to="FSM/JumpController" method="_on_jump_timer_timeout"]
