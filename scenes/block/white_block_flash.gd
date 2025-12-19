@@ -2,7 +2,7 @@ extends Node
 
 var has_entered_func = false
 var collider_subsitute  
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 # this if statement is used to turn off the flash if it hasnt collided with the shield
     (owner.material as ShaderMaterial).set_shader_parameter("LIGHTNING_active", false)
     var shield = get_tree().get_first_node_in_group("spider_shield")

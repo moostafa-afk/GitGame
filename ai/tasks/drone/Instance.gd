@@ -2,7 +2,7 @@ extends BTAction
 @export var instance : PackedScene 
 func _enter() -> void:
 ## Player group and postion is here 
-    var player = agent.get_tree().get_nodes_in_group("player")[0]
+    var _player = agent.get_tree().get_nodes_in_group("player")[0]
 
 ## Instance of the laser here
     #var load_laser: PackedScene = preload("res://scenes/enemies/laser.tscn")

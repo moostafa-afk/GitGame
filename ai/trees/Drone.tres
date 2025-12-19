@@ -1,4 +1,4 @@
-[gd_resource type="BehaviorTree" load_steps=22 format=3 uid="uid://bu2y7rk1ojl78"]
+[gd_resource type="BehaviorTree" load_steps=25 format=3 uid="uid://bu2y7rk1ojl78"]
 
 [ext_resource type="Script" uid="uid://cg8gpkokhvmln" path="res://ai/tasks/electric_drone/Check distance.gd" id="1_qm8mx"]
 [ext_resource type="Script" uid="uid://bwh2oik6h8je1" path="res://ai/tasks/drone/Y_Distance.gd" id="2_ibpmj"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cabqsfn603mxp" path="res://ai/tasks/drone/Distance.gd" id="3_g1p1m"]
 [ext_resource type="PackedScene" uid="uid://du6yl5tkslor1" path="res://scenes/enemies/enemy_scenes/laser.tscn" id="3_lsi2t"]
 [ext_resource type="Script" uid="uid://biwlvixg4314n" path="res://ai/tasks/drone/player_detected.gd" id="3_ru8aw"]
+[ext_resource type="Script" uid="uid://l2v75w15jqft" path="res://ai/tasks/drone/Owner_signal.gd" id="3_ylve8"]
 [ext_resource type="PackedScene" uid="uid://wto7m2dga5ci" path="res://scenes/enemies/enemy_scenes/drone_blast.tscn" id="7_lsi2t"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_ibpmj"]
@@ -23,6 +24,9 @@ children = [SubResource("BTAction_g1p1m")]
 [sub_resource type="BTAction" id="BTAction_ibpmj"]
 script = ExtResource("3_ru8aw")
 
+[sub_resource type="BTAction" id="BTAction_440ma"]
+script = ExtResource("3_ylve8")
+
 [sub_resource type="BTAction" id="BTAction_ru8aw"]
 custom_name = "Instance_laser"
 script = ExtResource("3_2vjv2")
@@ -30,7 +34,7 @@ instance = ExtResource("3_lsi2t")
 
 [sub_resource type="BTSequence" id="BTSequence_ru8aw"]
 custom_name = "laser_detection"
-children = [SubResource("BTWait_qm8mx"), SubResource("BTAction_ibpmj"), SubResource("BTAction_ru8aw")]
+children = [SubResource("BTWait_qm8mx"), SubResource("BTAction_ibpmj"), SubResource("BTAction_440ma"), SubResource("BTAction_ru8aw")]
 
 [sub_resource type="BTWait" id="BTWait_g3doo"]
 
@@ -41,6 +45,9 @@ script = ExtResource("2_ibpmj")
 script = ExtResource("3_g1p1m")
 min_distance = 80
 
+[sub_resource type="BTAction" id="BTAction_u6pc1"]
+script = ExtResource("3_ylve8")
+
 [sub_resource type="BTAction" id="BTAction_2vjv2"]
 custom_name = "Instance_blast"
 script = ExtResource("3_2vjv2")
@@ -48,7 +55,7 @@ instance = ExtResource("7_lsi2t")
 
 [sub_resource type="BTSequence" id="BTSequence_ibpmj"]
 custom_name = "blast_detection"
-children = [SubResource("BTWait_g3doo"), SubResource("BTAction_g3doo"), SubResource("BTAction_lsi2t"), SubResource("BTAction_2vjv2")]
+children = [SubResource("BTWait_g3doo"), SubResource("BTAction_g3doo"), SubResource("BTAction_lsi2t"), SubResource("BTAction_u6pc1"), SubResource("BTAction_2vjv2")]
 
 [sub_resource type="BTParallel" id="BTParallel_g1p1m"]
 num_successes_required = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://cvq8asc1ey1eg"]
+[gd_scene load_steps=49 format=4 uid="uid://cvq8asc1ey1eg"]
 
 [ext_resource type="Script" uid="uid://c3el551q6s0jj" path="res://scenes/instantiated/laser_effects.gd" id="1_3fcd6"]
 [ext_resource type="Texture2D" uid="uid://lmrhjtpaqo0j" path="res://assets/player assets/Sprite-0001.png" id="1_6uuk8"]
@@ -15,6 +15,7 @@
 [ext_resource type="Material" uid="uid://1ls8j0v7n1ib" path="res://Shaders/.tres files/evil_player.tres" id="8_3fcd6"]
 [ext_resource type="Texture2D" uid="uid://cekhs10km5q8m" path="res://assets/backgoround/floor.jpeg" id="13_wxfrn"]
 [ext_resource type="Texture2D" uid="uid://b63mlwdo7dfsj" path="res://assets/backgoround/floor2.jpeg" id="14_grwhg"]
+[ext_resource type="PackedScene" uid="uid://djpp1ghasp40d" path="res://scenes/enemies/enemy_scenes/Drone.tscn" id="15_7bwfe"]
 [ext_resource type="PackedScene" uid="uid://bwu414lgjx2du" path="res://scenes/enemies/enemy_scenes/spider.tscn" id="16_7bwfe"]
 [ext_resource type="AudioStream" uid="uid://dktotsdolqhgm" path="res://sound_effects/pixel-245147.mp3" id="16_jnf6q"]
 [ext_resource type="PackedScene" uid="uid://d0j2nmxab7kxf" path="res://scenes/enemies/enemy_scenes/Bipedal.tscn" id="19_6uuk8"]
@@ -1170,6 +1171,7 @@ environment = SubResource("Environment_grwhg")
 
 [node name="particle_effects" type="Node" parent="instantiated"]
 script = ExtResource("1_3fcd6")
+some = "laser_sprite"
 
 [node name="add_block" type="Node" parent="instantiated"]
 script = ExtResource("20_7bwfe")
@@ -1226,6 +1228,8 @@ position = Vector2(984, 342)
 
 [node name="Bipedal" parent="Ch_bodies modulate" instance=ExtResource("19_6uuk8")]
 position = Vector2(16, 437)
+
+[node name="drone" parent="Ch_bodies modulate" instance=ExtResource("15_7bwfe")]
 
 [node name="User Interface" parent="." instance=ExtResource("3_qg6m8")]
 

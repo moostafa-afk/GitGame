@@ -1,6 +1,6 @@
 extends Line2D
 
-func _physics_process(delta):
+func _physics_process(_delta):
     if %ShapeCast2D.is_colliding():
         var coll_point = %ShapeCast2D.get_collision_point(0)
         

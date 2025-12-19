@@ -19,7 +19,7 @@ func _tick(delta: float) -> Status:
         timer += delta
         if timer > max_air_time:
             agent.set_collision_mask_value(5, false)     
-            timer_has_started == false
+            timer_has_started = false
     return RUNNING
     
 ## If the player is on the block this func will then work 

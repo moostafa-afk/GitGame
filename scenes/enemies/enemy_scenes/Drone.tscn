@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://djpp1ghasp40d"]
+[gd_scene load_steps=18 format=3 uid="uid://djpp1ghasp40d"]
 
 [ext_resource type="Script" uid="uid://k0pbucgikv38" path="res://scenes/enemies/scripts/drone/drone.gd" id="1_but12"]
 [ext_resource type="Texture2D" uid="uid://ctfuqdkibdby2" path="res://assets/enemies/egg turret/Idle/idle.png" id="2_1m41y"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://d0maw3twh7l54" path="res://assets/enemies/egg turret/Idle/thruster.png" id="5_f1wuq"]
 [ext_resource type="Material" uid="uid://c2l3q7j41m2i7" path="res://Shaders/particle_presets/anim_time_hframes.tres" id="6_xglp3"]
 [ext_resource type="Script" uid="uid://dq5h6yydckjc1" path="res://demo/agents/scripts/hurtbox.gd" id="8_xglp3"]
+[ext_resource type="Script" uid="uid://dtlykl2xxk54n" path="res://scenes/enemies/scripts/bipedal/label.gd" id="10_jj6pv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wa4qw"]
 radius = 8.85942
@@ -39,7 +40,7 @@ particles_anim_h_frames = 2
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
-[node name="drone" type="CharacterBody2D" groups=["drone"]]
+[node name="drone" type="CharacterBody2D" groups=["drone", "enemies"]]
 modulate = Color(0.99, 1, 1, 1)
 collision_layer = 4
 collision_mask = 31
@@ -72,6 +73,7 @@ shape = SubResource("RectangleShape2D_xuw8x")
 [node name="Health" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("2_8b6qt")
+max_health = 10000.0
 metadata/_custom_type_script = "uid://5byn62y1oa76"
 
 [node name="line_of_sight" type="RayCast2D" parent="."]
@@ -110,7 +112,7 @@ radius = 25.0
 max_speed = 200.0
 debug_enabled = true
 
-[node name="BTPlayer" type="BTPlayer" parent="."]
+[node name="BTPlayer" type="BTPlayer" parent="." groups=["enemies"]]
 behavior_tree = ExtResource("3_5b617")
 blackboard_plan = SubResource("BlackboardPlan_but12")
 
@@ -132,6 +134,17 @@ speed_scale = 20.34
 explosiveness = 0.43
 randomness = 0.21
 process_material = ExtResource("6_xglp3")
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = -33.0
+offset_top = -48.0
+offset_right = 42.0
+offset_bottom = -25.0
+text = "Health
+"
+horizontal_alignment = 1
+script = ExtResource("10_jj6pv")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

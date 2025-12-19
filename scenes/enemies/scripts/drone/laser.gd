@@ -11,7 +11,7 @@ func _ready() -> void:
     offset()
 
 func _physics_process(delta: float) -> void:
-    #print(owner.name)
+
 ## Here I define velcoity since its not built in with area 2d
     velocity = speed * direction 
 
@@ -19,10 +19,10 @@ func _physics_process(delta: float) -> void:
     self.global_position += velocity * delta
     
 ### Checks to see if the area hasnt been deleted, if it is deleted, the sprite deletes itself too
-    if %laser_area.is_colliding():
-        point_of_collision.emit(%laser_area.global_rotation, %laser_area.point)
-        self.queue_free()
-        
+    #if %laser_area.is_colliding() :
+            #point_of_collision.emit(%laser_area.global_rotation, %laser_area.point)
+            #self.queue_free()
+            
 func offset():
 
 ## normalized to prevent speed variaiton based on distance
@@ -40,8 +40,6 @@ func offset():
     
 ## Set rotation 
     rotation = direction.angle()
-    
-
 
 func _on_timer_timeout() -> void:
     if %laser_area.is_colliding() == false:

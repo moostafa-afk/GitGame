@@ -390,7 +390,7 @@ fog_light_color = Color(0.139655, 0.622113, 0.644458, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjqa5"]
 size = Vector2(62, 58)
 
-[node name="spider" type="CharacterBody2D"]
+[node name="spider" type="CharacterBody2D" groups=["enemies"]]
 material = SubResource("ShaderMaterial_t7m53")
 collision_layer = 4
 collision_mask = 9

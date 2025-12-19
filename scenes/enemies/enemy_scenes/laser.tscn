@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://du6yl5tkslor1"]
+[gd_scene load_steps=13 format=3 uid="uid://du6yl5tkslor1"]
 
 [ext_resource type="Script" uid="uid://blg023xp0ldlj" path="res://scenes/enemies/scripts/drone/laser.gd" id="1_sxxrs"]
 [ext_resource type="Texture2D" uid="uid://dlxmfqdt4v3ki" path="res://assets/enemies/egg turret/Shoot/new_laser.png" id="1_vpegx"]
 [ext_resource type="Shader" uid="uid://dg41t17tku3sk" path="res://Shaders/my_glow.gdshader" id="2_l5c32"]
 [ext_resource type="Script" uid="uid://bv81ubq8jy5b7" path="res://laser_queue.gd" id="3_vpegx"]
 [ext_resource type="AudioStream" uid="uid://c2ch18sm6jpxh" path="res://sound_effects/laser shot.wav" id="5_0h3w5"]
+[ext_resource type="BehaviorTree" uid="uid://bu2y7rk1ojl78" path="res://ai/trees/Drone.tres" id="6_rvyqh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0h3w5"]
 shader = ExtResource("2_l5c32")
@@ -54,6 +55,8 @@ _data = {
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_l5c32"]
 
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_1y35q"]
+
 [node name="laser_sprite_group" type="Node2D" groups=["laser_sprite"]]
 script = ExtResource("1_sxxrs")
 
@@ -71,7 +74,7 @@ libraries = {
 }
 autoplay = "laser_shoot"
 
-[node name="laser_area" type="ShapeCast2D" parent="laser"]
+[node name="laser_area" type="ShapeCast2D" parent="laser" groups=["enemies"]]
 unique_name_in_owner = true
 visible = false
 position = Vector2(-13, -1)
@@ -79,7 +82,7 @@ rotation = -1.5708
 scale = Vector2(2.02, 1.28)
 shape = SubResource("SegmentShape2D_l5c32")
 target_position = Vector2(-3.0756e-05, 14.2857)
-collision_mask = 27
+collision_mask = 31
 script = ExtResource("3_vpegx")
 damage = 5.0
 knockback_enabled = true
@@ -93,5 +96,14 @@ wait_time = 5.0
 stream = ExtResource("5_0h3w5")
 volume_db = -51.253
 autoplay = true
+
+[node name="timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.1
+
+[node name="BTPlayer" type="BTPlayer" parent="."]
+behavior_tree = ExtResource("6_rvyqh")
+blackboard_plan = SubResource("BlackboardPlan_1y35q")
+unique_name_in_owner = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
