@@ -1,9 +1,11 @@
 extends BTAction
+signal owner_signal
 @export var instance : PackedScene 
 func _enter() -> void:
 ## Player group and postion is here 
     var _player = agent.get_tree().get_nodes_in_group("player")[0]
-
+    owner_signal.emit()
+    print("emitted")
 ## Instance of the laser here
     #var load_laser: PackedScene = preload("res://scenes/enemies/laser.tscn")
     var inst = instance.instantiate()

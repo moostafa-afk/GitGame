@@ -496,59 +496,59 @@ func play_selection_sound(code_edit: CodeEdit, selection_length: int, new_select
         return true
     else:
         # Still update the selected text but don't play sound
-        info.selection_length = selection_length
-    return false
+		info.selection_length = selection_length
+	return false
 
 func find_shader_editor_container() -> void:
-    var base_control: Control = EditorInterface.get_base_control()
-    var shader_file_editor_node: Node = find_node_by_class_name(base_control, "ShaderFileEditor")
-    if shader_file_editor_node:
-        var parent: Node = shader_file_editor_node.get_parent()
-        var shader_create_node: Node = find_node_by_class_name(parent, "ShaderCreateDialog")
-        for child in shader_create_node.get_parent().get_children():
-            if child is TabContainer:
-                shader_tab_container = child
-                
-    if not shader_tab_container:
-        printerr("[Fancy Editor Sounds] Unable not find the shader tab container. (Sounds wont play inside shader editor)")
-        return
-    else:
-        shader_tab_container.tab_changed.connect(_on_shader_tab_changed)
-        initial_shader_editor_lookup(shader_tab_container)
+	var base_control: Control = EditorInterface.get_base_control()
+	var shader_file_editor_node: Node = find_node_by_class_name(base_control, "ShaderFileEditor")
+	if shader_file_editor_node:
+		var parent: Node = shader_file_editor_node.get_parent()
+		var shader_create_node: Node = find_node_by_class_name(parent, "ShaderCreateDialog")
+		for child in shader_create_node.get_parent().get_children():
+			if child is TabContainer:
+				shader_tab_container = child
+				
+	if not shader_tab_container:
+		printerr("[Fancy Editor Sounds] Unable not find the shader tab container. (Sounds wont play inside shader editor)")
+		return
+	else:
+		shader_tab_container.tab_changed.connect(_on_shader_tab_changed)
+		initial_shader_editor_lookup(shader_tab_container)
 
 func _on_shader_tab_changed(tab: int) -> void:
-    add_shader_edit(shader_tab_container, tab)
+	add_shader_edit(shader_tab_container, tab)
 
 func find_node_by_class_name(node: Node, class_string: String) -> Node:
-    if node.get_class() == class_string:
-        return node;
-    for child in node.get_children():
-        var result: Node = find_node_by_class_name(child, class_string)
-        if result:
-            return result
-    return null
+	if node.get_class() == class_string:
+		return node;
+	for child in node.get_children():
+		var result: Node = find_node_by_class_name(child, class_string)
+		if result:
+			return result
+	return null
 
 func add_shader_edit(container: TabContainer, tab_number: int) -> void:
-    if not is_instance_valid(container):
-        return
-    
-    var text_shader_editor = container.get_tab_control(tab_number)
-    if not text_shader_editor or "TextShaderEditor" not in text_shader_editor.name: 
-        return
-    
-    var previous_editors = editors.duplicate()
-    
-    # Find the CodeEdit component(s) in this text_shader_editor
-    var code_edit: CodeEdit = find_node_by_class_name(text_shader_editor, "CodeEdit")
-    var editor_id = text_shader_editor.name + "_" + str(code_edit)
-    if not previous_editors.has(editor_id):
-        add_new_editor(code_edit, editor_id)
-    else:
-        editors[editor_id].code_edit = code_edit
+	if not is_instance_valid(container):
+		return
+	
+	var text_shader_editor = container.get_tab_control(tab_number)
+	if not text_shader_editor or "TextShaderEditor" not in text_shader_editor.name: 
+		return
+	
+	var previous_editors = editors.duplicate()
+	
+	# Find the CodeEdit component(s) in this text_shader_editor
+	var code_edit: CodeEdit = find_node_by_class_name(text_shader_editor, "CodeEdit")
+	var editor_id = text_shader_editor.name + "_" + str(code_edit)
+	if not previous_editors.has(editor_id):
+		add_new_editor(code_edit, editor_id)
+	else:
+		editors[editor_id].code_edit = code_edit
 
 func initial_shader_editor_lookup(container: TabContainer) -> void:
-    if not is_instance_valid(container):
-        return
+	if not is_instance_valid(container):
+		return
 
-    for i in range(container.get_tab_count()):
-        add_shader_edit(container, i)
+	for i in range(container.get_tab_count()):
+		add_shader_edit(container, i)

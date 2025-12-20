@@ -4,6 +4,7 @@ var speed := deg_to_rad(20.0) # radians per frame
 var min_angle := deg_to_rad(-60)
 var max_angle := deg_to_rad(60)
 var direction := 1.0
+signal player_detected
 
 func _physics_process(_delta: float) -> void:
     var player_direction = int(owner.player.global_position.x - owner.global_position.x)

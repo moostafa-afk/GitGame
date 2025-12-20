@@ -54,7 +54,6 @@ enabled=PackedStringArray("res://addons/PaletteSwapShader/plugin.cfg", "res://ad
 
 blocks=""
 laser=""
-enemies=""
 
 [input]
 

@@ -137,7 +137,7 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dfc4r"]
 
-[node name="spider_beam" type="Node2D" groups=["enemies"]]
+[node name="spider_beam" type="Node2D"]
 scale = Vector2(0.8, 0.8)
 
 [node name="scale_x_axis_pivot" type="AnimationPlayer" parent="."]

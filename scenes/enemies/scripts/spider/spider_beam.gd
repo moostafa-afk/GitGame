@@ -1,5 +1,5 @@
 extends ShapeCast2D
-#class_name Hitbox_shape
+class_name Hitbox_shape
 
 var point := Vector2.ZERO
 ## Damage value to apply.
