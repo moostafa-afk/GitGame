@@ -204,7 +204,7 @@ void vertex() {
 
 [resource]
 shader = SubResource("Shader_gcq0q")
-shader_parameter/opacity = 0.7
+shader_parameter/opacity = 0.7999999821184
 shader_parameter/squash_active = true
 shader_parameter/uv_mode = false
 shader_parameter/y_factor = 2.47
@@ -217,11 +217,11 @@ shader_parameter/LIGHTNING_lightningColor = Color(1.49205e-06, 0.703937, 0.50764
 shader_parameter/LIGHTNING_size = 0.26
 shader_parameter/LIGHTNING_width = 0.9
 shader_parameter/LIGHTNING_speed = 15.0
-shader_parameter/LIGHTNING_frequency = 29.0
-shader_parameter/LIGHTNING_flash = 0.0
+shader_parameter/LIGHTNING_frequency = 5.000000074506
+shader_parameter/LIGHTNING_flash = 4.5000000670554
 shader_parameter/LIGHTNING_time_shift = 0.0
 shader_parameter/COLORSWAP_active = true
-shader_parameter/COLORSWAP_mix = 0.0
+shader_parameter/COLORSWAP_mix = 0.40000000596048
 shader_parameter/COLORSWAP_max_colors = 8
 shader_parameter/COLORSWAP_show_stripes = false
 shader_parameter/COLORSWAP_tolerance = 0.0

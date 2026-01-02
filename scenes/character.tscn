@@ -47,7 +47,7 @@ shader_parameter/glow_shift = 1.0
 shader_parameter/glow_radius = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8yvht"]
-size = Vector2(28.323011, 40.380444)
+size = Vector2(10.948177, 40.380444)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7qyni"]
 load_path = "res://.godot/imported/M_jump.png-192862dcac430cfdd2fbbf99eb7f8173.ctex"
@@ -503,7 +503,6 @@ target_position = Vector2(1, 10)
 collision_mask = 16
 
 [node name="Hurtbox" type="Area2D" parent="."]
-visible = false
 position = Vector2(0, -12)
 scale = Vector2(1.7246704, -1.4166516)
 collision_layer = 64
@@ -512,7 +511,7 @@ script = ExtResource("24_7qyni")
 metadata/_custom_type_script = "uid://dq5h6yydckjc1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(2, -3.3124943)
+position = Vector2(-0.57982135, -2.8235593)
 scale = Vector2(0.847368, 1.02463)
 shape = SubResource("RectangleShape2D_8yvht")
 
@@ -534,6 +533,7 @@ text = "Health
 "
 horizontal_alignment = 1
 script = ExtResource("26_p478o")
+metadata/_edit_lock_ = true
 
 [connection signal="timeout" from="Timers/DashTimer" to="FSM/Dash" method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="Timers/JumpTimer" to="FSM/JumpController" method="_on_jump_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://djpp1ghasp40d"]
+[gd_scene load_steps=19 format=3 uid="uid://djpp1ghasp40d"]
 
 [ext_resource type="Script" uid="uid://k0pbucgikv38" path="res://scenes/enemies/scripts/drone/drone.gd" id="1_but12"]
 [ext_resource type="Texture2D" uid="uid://ctfuqdkibdby2" path="res://assets/enemies/egg turret/Idle/idle.png" id="2_1m41y"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://d0maw3twh7l54" path="res://assets/enemies/egg turret/Idle/thruster.png" id="5_f1wuq"]
 [ext_resource type="Material" uid="uid://c2l3q7j41m2i7" path="res://Shaders/particle_presets/anim_time_hframes.tres" id="6_xglp3"]
 [ext_resource type="Script" uid="uid://dq5h6yydckjc1" path="res://demo/agents/scripts/hurtbox.gd" id="8_xglp3"]
+[ext_resource type="Script" uid="uid://btw2mrg5lq1j5" path="res://scenes/enemies/scripts/drone/play_sound.gd" id="10_jj6pv"]
+[ext_resource type="Script" uid="uid://dtlykl2xxk54n" path="res://scenes/enemies/scripts/bipedal/label.gd" id="11_dgbjn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wa4qw"]
 radius = 8.85942
@@ -114,12 +116,6 @@ debug_enabled = true
 behavior_tree = ExtResource("3_5b617")
 blackboard_plan = SubResource("BlackboardPlan_but12")
 
-[node name="laser_sound" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("4_wa4qw")
-volume_db = -54.534
-pitch_scale = 1.59
-
 [node name="thruster" type="GPUParticles2D" parent="."]
 unique_name_in_owner = true
 modulate = Color(0.68, 1, 0.909333, 1)
@@ -132,6 +128,27 @@ speed_scale = 20.34
 explosiveness = 0.43
 randomness = 0.21
 process_material = ExtResource("6_xglp3")
+
+[node name="laser_sound" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_wa4qw")
+volume_db = -51.253
+autoplay = true
+
+[node name="sound_effect" type="Node" parent="." node_paths=PackedStringArray("sound_effect")]
+script = ExtResource("10_jj6pv")
+sound_effect = NodePath("../laser_sound")
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = -33.0
+offset_top = -48.0
+offset_right = 42.0
+offset_bottom = -25.0
+text = "Health
+"
+horizontal_alignment = 1
+script = ExtResource("11_dgbjn")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

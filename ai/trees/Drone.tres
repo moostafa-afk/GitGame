@@ -1,4 +1,4 @@
-[gd_resource type="BehaviorTree" load_steps=22 format=3 uid="uid://bu2y7rk1ojl78"]
+[gd_resource type="BehaviorTree" load_steps=24 format=3 uid="uid://bu2y7rk1ojl78"]
 
 [ext_resource type="Script" uid="uid://cg8gpkokhvmln" path="res://ai/tasks/electric_drone/Check distance.gd" id="1_qm8mx"]
 [ext_resource type="Script" uid="uid://bwh2oik6h8je1" path="res://ai/tasks/drone/Y_Distance.gd" id="2_ibpmj"]
@@ -9,6 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://wto7m2dga5ci" path="res://scenes/enemies/enemy_scenes/drone_blast.tscn" id="7_lsi2t"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_ibpmj"]
+var/call_sound/name = &"call_sound"
+var/call_sound/type = 3
+var/call_sound/value = 0.0
+var/call_sound/hint = 0
+var/call_sound/hint_string = ""
 
 [sub_resource type="BTAction" id="BTAction_g1p1m"]
 script = ExtResource("1_qm8mx")
@@ -23,6 +28,15 @@ children = [SubResource("BTAction_g1p1m")]
 [sub_resource type="BTAction" id="BTAction_ibpmj"]
 script = ExtResource("3_ru8aw")
 
+[sub_resource type="BBNode" id="BBNode_lsi2t"]
+saved_value = NodePath("sound_effect")
+resource_name = "sound_effect"
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_2vjv2"]
+node = SubResource("BBNode_lsi2t")
+method = &"play_sound"
+custom_name = "Play laser sound"
+
 [sub_resource type="BTAction" id="BTAction_ru8aw"]
 custom_name = "Instance_laser"
 script = ExtResource("3_2vjv2")
@@ -30,7 +44,7 @@ instance = ExtResource("3_lsi2t")
 
 [sub_resource type="BTSequence" id="BTSequence_ru8aw"]
 custom_name = "laser_detection"
-children = [SubResource("BTWait_qm8mx"), SubResource("BTAction_ibpmj"), SubResource("BTAction_ru8aw")]
+children = [SubResource("BTWait_qm8mx"), SubResource("BTAction_ibpmj"), SubResource("BTCallMethod_2vjv2"), SubResource("BTAction_ru8aw")]
 
 [sub_resource type="BTWait" id="BTWait_g3doo"]
 

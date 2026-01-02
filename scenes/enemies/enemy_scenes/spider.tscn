@@ -1,15 +1,16 @@
-[gd_scene load_steps=26 format=3 uid="uid://bwu414lgjx2du"]
+[gd_scene load_steps=27 format=3 uid="uid://bwu414lgjx2du"]
 
 [ext_resource type="Shader" uid="uid://2irgm8uxp4xt" path="res://Shaders/Outline 2.gdshader" id="1_mf3vg"]
 [ext_resource type="Script" uid="uid://ci1kijjj64cww" path="res://scenes/enemies/scripts/spider/spider.gd" id="2_5s4wc"]
 [ext_resource type="Texture2D" uid="uid://2k6cmw3eg5vi" path="res://assets/enemies/spider/idle.png" id="2_ttiju"]
 [ext_resource type="Animation" uid="uid://b1y50g31mox73" path="res://temp_animations/shield.tres" id="3_t7m53"]
 [ext_resource type="Texture2D" uid="uid://d1pq456rpxquf" path="res://assets/enemies/spider/walk_final.png" id="4_sdkqh"]
-[ext_resource type="PackedScene" uid="uid://bufpllvcroemw" path="res://scenes/enemies/enemy_scenes/spider_beam.tscn" id="7_ixrlb"]
 [ext_resource type="Script" uid="uid://dq5h6yydckjc1" path="res://demo/agents/scripts/hurtbox.gd" id="8_phe6u"]
 [ext_resource type="Script" uid="uid://5byn62y1oa76" path="res://demo/agents/scripts/health.gd" id="9_jjqa5"]
 [ext_resource type="BehaviorTree" uid="uid://cqw1pt5nweqp6" path="res://ai/trees/Spider.tres" id="9_t7m53"]
 [ext_resource type="Script" uid="uid://dtlykl2xxk54n" path="res://scenes/enemies/scripts/bipedal/label.gd" id="10_bke4x"]
+[ext_resource type="PackedScene" uid="uid://bufpllvcroemw" path="res://scenes/enemies/enemy_scenes/spider_beam.tscn" id="10_e0gjf"]
+[ext_resource type="PackedScene" uid="uid://p3s68i61bkhv" path="res://scenes/enemies/enemy_scenes/spider_beam2.tscn" id="11_e0gjf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t7m53"]
 shader = ExtResource("1_mf3vg")
@@ -448,9 +449,6 @@ process_material = SubResource("ParticleProcessMaterial_t7m53")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_t7m53")
 
-[node name="spider_beam" parent="." instance=ExtResource("7_ixrlb")]
-position = Vector2(38, -4)
-
 [node name="Hurtbox" type="Area2D" parent="."]
 script = ExtResource("8_phe6u")
 metadata/_custom_type_script = "uid://dq5h6yydckjc1"
@@ -474,5 +472,13 @@ text = "Health
 "
 horizontal_alignment = 1
 script = ExtResource("10_bke4x")
+
+[node name="spider_beam" parent="." instance=ExtResource("10_e0gjf")]
+position = Vector2(36, -3)
+particle_offset = 13
+
+[node name="spider_beam2" parent="." instance=ExtResource("11_e0gjf")]
+position = Vector2(-25, -3)
+particle_offset = -13
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

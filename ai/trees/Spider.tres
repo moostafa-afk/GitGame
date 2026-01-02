@@ -1,23 +1,8 @@
-[gd_resource type="BehaviorTree" load_steps=8 format=3 uid="uid://cqw1pt5nweqp6"]
-
-[ext_resource type="Script" uid="uid://c1y1qhorim7n4" path="res://ai/tasks/bipedal/turn_on_mask.gd" id="1_v4vcb"]
+[gd_resource type="BehaviorTree" load_steps=3 format=3 uid="uid://cqw1pt5nweqp6"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_4mf40"]
 
-[sub_resource type="BTWait" id="BTWait_ediev"]
-duration = 2.0
-
-[sub_resource type="BTConsolePrint" id="BTConsolePrint_4mf40"]
-text = "testjdjdhx
-"
-
-[sub_resource type="BTConsolePrint" id="BTConsolePrint_v4vcb"]
-
-[sub_resource type="BTAction" id="BTAction_ediev"]
-script = ExtResource("1_v4vcb")
-
 [sub_resource type="BTSelector" id="BTSelector_v4vcb"]
-children = [SubResource("BTWait_ediev"), SubResource("BTConsolePrint_4mf40"), SubResource("BTConsolePrint_v4vcb"), SubResource("BTAction_ediev")]
 
 [resource]
 blackboard_plan = SubResource("BlackboardPlan_4mf40")

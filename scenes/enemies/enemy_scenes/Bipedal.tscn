@@ -88,7 +88,6 @@ _data = {
 size = Vector2(52, 6.5)
 
 [node name="Bipedal" type="CharacterBody2D"]
-visible = false
 modulate = Color(0.8, 0.8, 0.8, 1)
 collision_layer = 4
 collision_mask = 1073741833

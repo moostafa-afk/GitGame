@@ -3,6 +3,8 @@ var velocity: Vector2
 @export var speed : int = 600
 var direction: Vector2
 var direction_x : int 
+@export var owner_name :String
+var source := []
 @onready var player: CharacterBody2D = get_tree().get_nodes_in_group("player")[0]
 signal point_of_collision(shape_rotation:float,point : Vector2)
 
@@ -11,17 +13,22 @@ func _ready() -> void:
     offset()
 
 func _physics_process(delta: float) -> void:
-    #print(owner.name)
 ## Here I define velcoity since its not built in with area 2d
     velocity = speed * direction 
 
 ##Update position instead of velocity since its not built in 
     self.global_position += velocity * delta
+    source = get_tree().get_nodes_in_group(owner_name)
     
+
 ### Checks to see if the area hasnt been deleted, if it is deleted, the sprite deletes itself too
     if %laser_area.is_colliding():
-        point_of_collision.emit(%laser_area.global_rotation, %laser_area.point)
-        self.queue_free()
+        for i in source:
+            if %laser_area.get_collider(0) == i:
+                return
+    
+            point_of_collision.emit(%laser_area.global_rotation, %laser_area.point)
+            self.queue_free()
         
 func offset():
 

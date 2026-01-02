@@ -1,11 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://bufpllvcroemw"]
+[gd_scene load_steps=15 format=3 uid="uid://p3s68i61bkhv"]
 
-[ext_resource type="Texture2D" uid="uid://dlxmfqdt4v3ki" path="res://assets/enemies/egg turret/Shoot/new_laser.png" id="1_2ycer"]
-[ext_resource type="Script" uid="uid://d24dtcl1r85mw" path="res://scenes/enemies/scripts/spider/call_method_beam.gd" id="1_e0kjr"]
-[ext_resource type="Material" uid="uid://p7x1je6dtmo4" path="res://Shaders/.tres files/plasm_wave2.tres" id="2_sxd6g"]
-[ext_resource type="Script" uid="uid://r80va1ffbff0" path="res://scenes/enemies/scripts/spider/spider_beam.gd" id="2_ylnva"]
-[ext_resource type="Texture2D" uid="uid://dgh4jqo6ps7nw" path="res://assets/enemies/spider/laser_beam2.png" id="3_ylnva"]
-[ext_resource type="Script" uid="uid://8pgcd4fjmfie" path="res://scenes/enemies/scripts/spider/line_2d_beam.gd" id="6_e0kjr"]
+[ext_resource type="Script" uid="uid://d24dtcl1r85mw" path="res://scenes/enemies/scripts/spider/call_method_beam.gd" id="1_6vt27"]
+[ext_resource type="Texture2D" uid="uid://dlxmfqdt4v3ki" path="res://assets/enemies/egg turret/Shoot/new_laser.png" id="2_swoc6"]
+[ext_resource type="Script" uid="uid://cdlmhtv5e4opp" path="res://scenes/enemies/scripts/spider/spider_beam2_keep.gd" id="3_6vt27"]
+[ext_resource type="Material" uid="uid://p7x1je6dtmo4" path="res://Shaders/.tres files/plasm_wave2.tres" id="4_125yl"]
+[ext_resource type="Texture2D" uid="uid://dgh4jqo6ps7nw" path="res://assets/enemies/spider/laser_beam2.png" id="5_qspto"]
+[ext_resource type="Script" uid="uid://8pgcd4fjmfie" path="res://scenes/enemies/scripts/spider/line_2d_beam.gd" id="6_iy3bl"]
 
 [sub_resource type="Animation" id="Animation_sxd6g"]
 length = 5.0
@@ -39,7 +39,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5, 3.9, 4),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 1.8), Vector2(1000, 1.8), Vector2(1000, 1.8), Vector2(0, 0)]
+"values": [Vector2(0, -1.8), Vector2(-1000, 1.8), Vector2(-1000, 1.8), Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ylnva"]
@@ -149,9 +149,9 @@ gravity = Vector3(0, 0, 0)
 scale_min = 2.0
 scale_max = 4.0
 
-[node name="spider_beam" type="Node2D"]
+[node name="spider_beam2" type="Node2D"]
 scale = Vector2(0.8, 0.8)
-script = ExtResource("1_e0kjr")
+script = ExtResource("1_6vt27")
 
 [node name="scale_x_axis_pivot" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -172,8 +172,8 @@ autoplay = "new_animation"
 unique_name_in_owner = true
 self_modulate = Color(1, 1, 1, 0)
 scale = Vector2(1e-05, 1)
-skew = 0.525344
-texture = ExtResource("1_2ycer")
+skew = -0.52534413
+texture = ExtResource("2_swoc6")
 offset = Vector2(17.65, 0.93)
 
 [node name="ShapeCast2D" type="ShapeCast2D" parent="Sprite2D"]
@@ -183,19 +183,21 @@ scale = Vector2(0.4, 0.49)
 shape = SubResource("RectangleShape2D_dfc4r")
 target_position = Vector2(0, 0)
 collision_mask = 5
-script = ExtResource("2_ylnva")
+script = ExtResource("3_6vt27")
 
 [node name="Line2D" type="Line2D" parent="Sprite2D"]
 unique_name_in_owner = true
-material = ExtResource("2_sxd6g")
+material = ExtResource("4_125yl")
 points = PackedVector2Array(0, 0, 8.75, 0)
-texture = ExtResource("3_ylnva")
+texture = ExtResource("5_qspto")
 texture_mode = 2
-script = ExtResource("6_e0kjr")
+script = ExtResource("6_iy3bl")
+collider_name = "furthest_collider"
 
 [node name="beam_particles" type="GPUParticles2D" parent="."]
 unique_name_in_owner = true
 visible = false
+scale = Vector2(-1, 1)
 amount = 100
 lifetime = 0.2
 explosiveness = 0.1
