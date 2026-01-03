@@ -479,6 +479,6 @@ particle_offset = 13
 
 [node name="spider_beam2" parent="." instance=ExtResource("11_e0gjf")]
 position = Vector2(-25, -3)
-particle_offset = -13
+particle_offset = -18
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
