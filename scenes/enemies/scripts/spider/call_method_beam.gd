@@ -16,4 +16,10 @@ func _physics_process(_delta):
         
 func play_animations():
     %scale_x_axis_pivot.play("laser_beam")
+    %scale_y_axis.get_animation("new_animation").loop = true
     %scale_y_axis.play("new_animation")
+
+
+func _on_scale_x_axis_pivot_animation_finished(anim_name: StringName) -> void:
+    if anim_name == "laser_beam":
+     %scale_y_axis.stop()

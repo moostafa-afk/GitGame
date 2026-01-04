@@ -9,7 +9,6 @@
 
 [sub_resource type="Animation" id="Animation_sxd6g"]
 length = 5.0
-loop_mode = 1
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -27,7 +26,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_11bfb"]
 resource_name = "laser_beam"
 length = 4.0
-loop_mode = 1
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -50,7 +48,6 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_ylnva"]
 length = 0.001
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -91,7 +88,6 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_2ycer"]
 resource_name = "new_animation"
 length = 0.1
-loop_mode = 1
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -158,7 +154,6 @@ unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_ylnva")
 }
-autoplay = "laser_beam"
 
 [node name="scale_y_axis" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -166,7 +161,6 @@ root_node = NodePath("../Sprite2D/Line2D")
 libraries = {
 &"": SubResource("AnimationLibrary_e0kjr")
 }
-autoplay = "new_animation"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
@@ -200,3 +194,5 @@ amount = 100
 lifetime = 0.2
 explosiveness = 0.1
 process_material = SubResource("ParticleProcessMaterial_rspc8")
+
+[connection signal="animation_finished" from="scale_x_axis_pivot" to="." method="_on_scale_x_axis_pivot_animation_finished"]

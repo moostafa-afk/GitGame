@@ -1,8 +1,42 @@
-[gd_resource type="BehaviorTree" load_steps=3 format=3 uid="uid://cqw1pt5nweqp6"]
+[gd_resource type="BehaviorTree" load_steps=12 format=3 uid="uid://cqw1pt5nweqp6"]
+
+[ext_resource type="Script" uid="uid://bwh2oik6h8je1" path="res://ai/tasks/drone/Y_Distance.gd" id="1_v4vcb"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_4mf40"]
 
+[sub_resource type="BTAction" id="BTAction_ediev"]
+script = ExtResource("1_v4vcb")
+min_distance_y = 20
+
+[sub_resource type="BTSequence" id="BTSequence_7pkb2"]
+custom_name = "Checking distance"
+children = [SubResource("BTAction_ediev")]
+
+[sub_resource type="BBNode" id="BBNode_v4vcb"]
+saved_value = NodePath("spider_beam")
+resource_name = "spider_beam"
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_ediev"]
+node = SubResource("BBNode_v4vcb")
+method = &"play_animations"
+
+[sub_resource type="BBNode" id="BBNode_d7g3p"]
+saved_value = NodePath("spider_beam2")
+resource_name = "spider_beam2"
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_e1jh2"]
+node = SubResource("BBNode_d7g3p")
+method = &"play_animations"
+
+[sub_resource type="BTWait" id="BTWait_7pkb2"]
+duration = 3.0
+
+[sub_resource type="BTSequence" id="BTSequence_m13mn"]
+custom_name = "Play laser beam animation "
+children = [SubResource("BTCallMethod_ediev"), SubResource("BTCallMethod_e1jh2"), SubResource("BTWait_7pkb2")]
+
 [sub_resource type="BTSelector" id="BTSelector_v4vcb"]
+children = [SubResource("BTSequence_7pkb2"), SubResource("BTSequence_m13mn")]
 
 [resource]
 blackboard_plan = SubResource("BlackboardPlan_4mf40")

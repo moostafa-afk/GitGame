@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bwu414lgjx2du"]
+[gd_scene load_steps=26 format=3 uid="uid://bwu414lgjx2du"]
 
 [ext_resource type="Shader" uid="uid://2irgm8uxp4xt" path="res://Shaders/Outline 2.gdshader" id="1_mf3vg"]
 [ext_resource type="Script" uid="uid://ci1kijjj64cww" path="res://scenes/enemies/scripts/spider/spider.gd" id="2_5s4wc"]
@@ -19,7 +19,7 @@ shader_parameter/OUTLINE_active = true
 shader_parameter/OUTLINE_thickness = 20.0
 shader_parameter/OUTLINE_color = Color(1, 0, 0, 1)
 
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_iejlx"]
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_e0gjf"]
 
 [sub_resource type="Animation" id="Animation_cjpfl"]
 length = 0.001
@@ -369,25 +369,6 @@ gravity = Vector3(0, 0, 0)
 scale_min = 0.0
 scale_max = 10.0
 
-[sub_resource type="Environment" id="Environment_t7m53"]
-background_mode = 3
-glow_levels/1 = 3.78
-glow_levels/2 = 6.65
-glow_levels/3 = 5.49
-glow_levels/4 = 6.48
-glow_levels/5 = 7.91
-glow_levels/6 = 9.53
-glow_levels/7 = 8.62
-glow_normalized = true
-glow_intensity = 5.77
-glow_strength = 0.84
-glow_blend_mode = 1
-glow_hdr_threshold = 0.78
-glow_hdr_scale = 0.97
-glow_hdr_luminance_cap = 5.28
-glow_map_strength = 1.0
-fog_light_color = Color(0.139655, 0.622113, 0.644458, 1)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjqa5"]
 size = Vector2(62, 58)
 
@@ -399,7 +380,7 @@ script = ExtResource("2_5s4wc")
 
 [node name="BTPlayer" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("9_t7m53")
-blackboard_plan = SubResource("BlackboardPlan_iejlx")
+blackboard_plan = SubResource("BlackboardPlan_e0gjf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -425,6 +406,7 @@ texture = ExtResource("4_sdkqh")
 hframes = 11
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+unique_name_in_owner = true
 path_desired_distance = 5.0
 target_desired_distance = 5.0
 navigation_layers = 2
@@ -445,9 +427,6 @@ modulate = Color(0.85098, 0.85098, 0.85098, 0.235294)
 position = Vector2(-43, 39)
 amount = 100
 process_material = SubResource("ParticleProcessMaterial_t7m53")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_t7m53")
 
 [node name="Hurtbox" type="Area2D" parent="."]
 script = ExtResource("8_phe6u")

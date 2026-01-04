@@ -11,7 +11,7 @@ func _tick(_delta: float) -> Status:
     ## Just in case it is flipped lef instead of right
 
     if distance_y <= min_distance_y:
-        return SUCCESS
+        return FAILURE
     else:
        return RUNNING
  
