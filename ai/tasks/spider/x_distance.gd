@@ -1,5 +1,8 @@
 extends BTAction
 @export var min_distance_x : int = 0
+@export var return_1 = Status.FAILURE
+@export var return_2 = Status.RUNNING
+
 
 func _tick(_delta: float) -> Status:
 ## Player 
@@ -13,7 +16,9 @@ func _tick(_delta: float) -> Status:
         
     if distance_x <= min_distance_x:
 
-        return FAILURE
+        return return_1 
     else:
-       return RUNNING
+       return return_2
  
+                                           
+                                                                                                                    

@@ -1,10 +1,10 @@
-[gd_resource type="BehaviorTree" load_steps=30 format=3 uid="uid://dk6bsl8iqc4uw"]
+[gd_resource type="BehaviorTree" load_steps=31 format=3 uid="uid://dk6bsl8iqc4uw"]
 
 [ext_resource type="Script" uid="uid://bnt2qotdae4lb" path="res://ai/tasks/bipedal/check_on_player.gd" id="1_bqr7p"]
 [ext_resource type="Script" uid="uid://6f47hyfbb3vf" path="res://ai/tasks/bipedal/check_is_on_block.gd" id="1_p1tlg"]
 [ext_resource type="Script" uid="uid://c4vd7spqyngw5" path="res://ai/tasks/bipedal/Raycast_floor.gd" id="2_scqg3"]
 [ext_resource type="Script" uid="uid://b1writ5oqj4eh" path="res://ai/tasks/bipedal/Up_Down.gd" id="4_bqr7p"]
-[ext_resource type="Script" uid="uid://b6nlewxlf7171" path="res://ai/tasks/spider/x_distance.gd" id="4_tf0vs"]
+[ext_resource type="Script" uid="uid://dr14hl8exouuv" path="res://ai/tasks/bipedal/x_distance.gd" id="4_tf0vs"]
 [ext_resource type="Script" uid="uid://5rkdo3p5yleo" path="res://ai/tasks/bipedal/turn_off_mask.gd" id="5_tf0vs"]
 [ext_resource type="Script" uid="uid://bbk6kip31r5e2" path="res://ai/tasks/bipedal/Jump.gd" id="6_bqr7p"]
 [ext_resource type="Script" uid="uid://c1y1qhorim7n4" path="res://ai/tasks/bipedal/turn_on_mask.gd" id="7_bjfws"]
@@ -35,13 +35,13 @@ animation_name = &"walk"
 [sub_resource type="BTAction" id="BTAction_scqg3"]
 script = ExtResource("2_scqg3")
 
-[sub_resource type="BTAction" id="BTAction_p1tlg"]
+[sub_resource type="BTAction" id="BTAction_217jv"]
 script = ExtResource("4_tf0vs")
-min_distance_x = 100
+min_distance_x = 30
 
 [sub_resource type="BTSequence" id="BTSequence_bqr7p"]
 custom_name = "Walk"
-children = [SubResource("BTPlayAnimation_8bax6"), SubResource("BTAction_scqg3"), SubResource("BTAction_p1tlg")]
+children = [SubResource("BTPlayAnimation_8bax6"), SubResource("BTAction_scqg3"), SubResource("BTAction_217jv")]
 
 [sub_resource type="BTAction" id="BTAction_fxuc4"]
 script = ExtResource("4_bqr7p")
@@ -91,9 +91,11 @@ children = [SubResource("BTCheckVar_bjfws"), SubResource("BTAction_oubh8"), SubR
 custom_name = "Bipedal tree"
 children = [SubResource("BTSequence_bqr7p"), SubResource("BTSequence_fxuc4"), SubResource("BTSequence_8bax6"), SubResource("BTSequence_p1tlg")]
 
+[sub_resource type="BTComment" id="BTComment_bqr7p"]
+
 [sub_resource type="BTParallel" id="BTParallel_8bax6"]
 custom_name = "Bipedal tree and check"
-children = [SubResource("BTAction_bjfws"), SubResource("BTAction_e0gxu"), SubResource("BTSelector_tf0vs")]
+children = [SubResource("BTAction_bjfws"), SubResource("BTAction_e0gxu"), SubResource("BTSelector_tf0vs"), SubResource("BTComment_bqr7p")]
 
 [resource]
 blackboard_plan = SubResource("BlackboardPlan_1v61r")

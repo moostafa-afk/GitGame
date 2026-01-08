@@ -181,6 +181,7 @@ script = ExtResource("2_ylnva")
 
 [node name="Line2D" type="Line2D" parent="Sprite2D"]
 unique_name_in_owner = true
+z_index = -1
 material = ExtResource("2_sxd6g")
 points = PackedVector2Array(0, 0, 8.75, 0)
 texture = ExtResource("3_ylnva")
@@ -190,6 +191,7 @@ script = ExtResource("6_e0kjr")
 [node name="beam_particles" type="GPUParticles2D" parent="."]
 unique_name_in_owner = true
 visible = false
+z_index = -1
 amount = 100
 lifetime = 0.2
 explosiveness = 0.1

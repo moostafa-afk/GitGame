@@ -66,8 +66,7 @@ children = [SubResource("BTWait_g3doo"), SubResource("BTAction_g3doo"), SubResou
 
 [sub_resource type="BTParallel" id="BTParallel_g1p1m"]
 num_successes_required = 0
-num_failures_required = 3
-repeat = true
+num_failures_required = 2
 children = [SubResource("BTSequence_ru8aw"), SubResource("BTSequence_ibpmj")]
 
 [sub_resource type="BTSelector" id="BTSelector_u6pc1"]

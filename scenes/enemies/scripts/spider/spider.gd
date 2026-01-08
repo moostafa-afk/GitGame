@@ -19,7 +19,7 @@ func _physics_process(delta: float) -> void:
     timer += delta
     if not is_on_floor():
         velocity.y += gravity * delta
-    
+   
     var current_pos = global_position
     var next_pos = nav.get_next_path_position()
     var new_velocity = current_pos.direction_to(next_pos) * speed    

@@ -1,5 +1,7 @@
 extends BTAction
 @export var min_distance_y : int = 0
+@export var return_1 = Status.SUCCESS
+@export var else_return_2 = Status.RUNNING
 
 func _tick(_delta: float) -> Status:
 ## Player 
@@ -11,7 +13,7 @@ func _tick(_delta: float) -> Status:
     ## Just in case it is flipped lef instead of right
 
     if distance_y <= min_distance_y:
-        return FAILURE
+        return return_1
     else:
-       return RUNNING
+       return else_return_2
  

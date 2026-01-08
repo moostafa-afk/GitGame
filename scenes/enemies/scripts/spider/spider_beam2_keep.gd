@@ -34,15 +34,9 @@ func _physics_process(_delta: float) -> void:
                %beam_particles.global_position.x= point.x +owner.get("particle_offset")
 
     
-## Damage here     
-## Damage is only done to the closest collider
-        if furthest_collider == parent:
-            return
-        furthest_collider.get_node("Hurtbox").take_damage(damage, get_knockback(), self)
-  
-func get_knockback() -> Vector2:
-    var knockback: Vector2
-    if knockback_enabled:
-        knockback = Vector2.RIGHT.rotated(global_rotation) * knockback_strength
-    return knockback
+#
+    
+    
+    
+    
     

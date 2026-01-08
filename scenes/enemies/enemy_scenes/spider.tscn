@@ -377,6 +377,7 @@ material = SubResource("ShaderMaterial_t7m53")
 collision_layer = 4
 collision_mask = 9
 script = ExtResource("2_5s4wc")
+gravity = 1000
 
 [node name="BTPlayer" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("9_t7m53")
